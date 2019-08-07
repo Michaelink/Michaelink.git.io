@@ -126,7 +126,8 @@
 <p>如果发现JVM经常进行full gc 怎么排查？</p>
 <p>不停的进行full gc表示可能老年代对象占有大小超过阈值，并且经过多次full gc还是没有降到阈值以下，所以猜测可能老年代里有大量的数据存活了很久，可能是出现了内存泄露，也可能是缓存了大量的数据一直没有释放，我们可以用jmap将gc日志dump下来，分析下哪些对象的实例个数很多，以及哪些对象占用空间最多，然后结合代码进行分析。</p>
 <p><strong># 并发和锁</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1828490-5c08f13fdedb4201.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线程的状态机制"></p>
+<div align="center"> <img src="https://upload-images.jianshu.io/upload_images/1828490-5c08f13fdedb4201.jpg" width="500px"> </div><br>
+
 <p>线程池参数：核心线程数，最大线程数，线程工厂，线程空闲时间，任务队列，拒绝策略。</p>
 <p>先创建核心线程，之后放入任务队列，任务队列满了创建线程直到最大线程数，在超过最大线程数就会拒绝，线程空闲后超过核心线程数的会释放，核心线程也可以通过配置来释放,针对那些一天只跑一个任务的情况。newCachedThreadPool线程池会导致创建大量的线程，因为用了同步队列。</p>
 <p>synchronized</p>
@@ -161,12 +162,12 @@
 <p>行为型：责任链 观察者 模版</p>
 <p>封装（隐藏内部实现） 继承（代码复用） 多态（方法的重写和重载）</p>
 <p>设计原则：单一指责，开关原则，里氏替换，接口分离，依赖反转</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1828490-734aa937d48a3f85.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<div align="center"> <img src="https://upload-images.jianshu.io/upload_images/1828490-734aa937d48a3f85.jpg" width="500px"> </div><br>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/05/Java知识汇总/" data-id="cjyz49hs100019gve16xum3st" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/05/Java知识汇总/" data-id="cjz1dwije0001m4vehcq3ltxn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/05/hello-world/" data-id="cjyz49hr600009gvew5482qwm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/05/hello-world/" data-id="cjz1dwiia0000m4veaa36p57s" class="article-share-link">Share</a>
       
       
     </footer>
