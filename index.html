@@ -62,6 +62,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/20/Docker/" class="article-date">
+  <time datetime="2019-08-20T03:38:24.000Z" itemprop="datePublished">2019-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/20/Docker/">Docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Docker安装和基本使用"><a href="#Docker安装和基本使用" class="headerlink" title="Docker安装和基本使用"></a>Docker安装和基本使用</h1><p>apt-get -y install apt-transport-https ca-certificates curl software-properties-common</p>
+<p>curl -fsSL <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+<p>add-apt-repository “deb [arch=amd64] <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu</a> $(lsb_release -cs) stable”</p>
+<p>apt-get update &amp;&amp; apt-get install -y docker-ce</p>
+<p>docker version</p>
+<p>cd /etc/docker</p>
+<p>tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://tldg6byw.mirror.aliyuncs.com&quot;]" target="_blank" rel="noopener">https://tldg6byw.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
+<p>systemctl daemon-reload<br>systemctl restart docker</p>
+<p>docker info</p>
+<p>docker pull tomcat</p>
+<p>docker images</p>
+<p>docker run -p 8080:8080 tomcat</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/20/Docker/" data-id="cjzjaco7g0000ksvedyz0bu1x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Java知识汇总" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/05/Java知识汇总/" class="article-date">
@@ -167,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/05/Java知识汇总/" data-id="cjz1dwije0001m4vehcq3ltxn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/05/Java知识汇总/" data-id="cjzjaco8d0002ksvenmgo6jpu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/05/hello-world/" data-id="cjz1dwiia0000m4veaa36p57s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/05/hello-world/" data-id="cjzjaco7q0001ksveh3sp82kq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,6 +303,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/20/Docker/">Docker</a>
+          </li>
         
           <li>
             <a href="/2019/08/05/Java知识汇总/">Java知识汇总</a>

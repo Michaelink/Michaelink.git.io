@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2019 | Hexo</title>
+  <title>Docker | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="Docker安装和基本使用apt-get -y install apt-transport-https ca-certificates curl software-properties-common curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - add-apt-reposit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/Docker/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Docker安装和基本使用apt-get -y install apt-transport-https ca-certificates curl software-properties-common curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - add-apt-reposit">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-20T03:43:42.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Docker">
+<meta name="twitter:description" content="Docker安装和基本使用apt-get -y install apt-transport-https ca-certificates curl software-properties-common curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - add-apt-reposit">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,78 +64,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/20/Docker/" class="archive-article-date">
-  <time datetime="2019-08-20T03:38:24.000Z" itemprop="datePublished">Aug 20</time>
+        <section id="main"><article id="post-Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/20/Docker/" class="article-date">
+  <time datetime="2019-08-20T03:38:24.000Z" itemprop="datePublished">2019-08-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/20/Docker/">Docker</a>
+    <h1 class="article-title" itemprop="name">
+      Docker
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/05/Java知识汇总/" class="archive-article-date">
-  <time datetime="2019-08-05T15:19:12.000Z" itemprop="datePublished">Aug 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/Java知识汇总/">Java知识汇总</a>
-    </h1>
-  
+        <h1 id="Docker安装和基本使用"><a href="#Docker安装和基本使用" class="headerlink" title="Docker安装和基本使用"></a>Docker安装和基本使用</h1><p>apt-get -y install apt-transport-https ca-certificates curl software-properties-common</p>
+<p>curl -fsSL <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+<p>add-apt-repository “deb [arch=amd64] <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu</a> $(lsb_release -cs) stable”</p>
+<p>apt-get update &amp;&amp; apt-get install -y docker-ce</p>
+<p>docker version</p>
+<p>cd /etc/docker</p>
+<p>tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://tldg6byw.mirror.aliyuncs.com&quot;]" target="_blank" rel="noopener">https://tldg6byw.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
+<p>systemctl daemon-reload<br>systemctl restart docker</p>
+<p>docker info</p>
+<p>docker pull tomcat</p>
+<p>docker images</p>
+<p>docker run -p 8080:8080 tomcat</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/05/hello-world/" class="archive-article-date">
-  <time datetime="2019-08-05T01:24:35.392Z" itemprop="datePublished">Aug 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/20/Docker/" data-id="cjzjaco7g0000ksvedyz0bu1x" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/05/Java知识汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java知识汇总</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
