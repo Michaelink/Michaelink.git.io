@@ -220,7 +220,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>git config –global user.name “用户名”</p>
+                <div align="center"> <img src=" https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268/sign=48706442f0d3572c66e29bdab2126352/f7246b600c338744a9591cd7530fd9f9d62aa0f8.jpg" width="500px"> </div><br>
+
+<p>git config –global user.name “用户名”</p>
 <p>git config –global user.email “邮箱”</p>
 <h4 id="设置sshkey"><a href="#设置sshkey" class="headerlink" title="设置sshkey:"></a>设置sshkey:</h4><p>cd ~/.ssh<br>l手动生成秘钥: ssh-keygen -t rsa -C “邮箱” （默认路径，默认没有密码登录）<br>/root/.ssh得到公钥<br>将秘钥复制到自己的github上（在账户的设置的ssh里,新建一个然后把内容粘贴到秘钥里面）</p>
 <p>cd  项目文件夹<br>git init   初始化<br>git add .  把所有的文件都添加到仓库里<br>git commit -m “第一次提交”</p>
@@ -234,6 +236,10 @@
 <p>更新说明 git commit -m “更新说明”</p>
 <p>拉取最新分支（如果这个仓库是个人的就不需要） git pull</p>
 <p>推送代码  git push origin master</p>
+<h4 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h4><p>git config –global http.proxy socks5://127.0.0.1:1080<br>git config –global https.proxy socks5://127.0.0.1:1080<br>git config –gloal http.poxy “localhost:1080”</p>
+<h4 id="只为GitHub设置代理"><a href="#只为GitHub设置代理" class="headerlink" title="只为GitHub设置代理"></a>只为GitHub设置代理</h4><p>git config –global http.<a href="https://github.com.proxy" target="_blank" rel="noopener">https://github.com.proxy</a> socks5://127.0.0.1:1080<br>git config –global https.<a href="https://github.com.proxy" target="_blank" rel="noopener">https://github.com.proxy</a> socks5://127.0.0.1:1080</p>
+<p>git config –global -e     查看代理</p>
+<h4 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h4><p>git config –global –unset http.proxy<br>git config –global –unset https.proxy</p>
 
                 
 
@@ -386,7 +392,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Mike 2019 
+                    Copyright &copy; Mike 2020 
                     <br>
                     Powered by <a href="http://www.hexo.io">Hexo</a> 
                     <span style="display: inline-block; margin: 0 5px;">

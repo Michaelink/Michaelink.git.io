@@ -220,22 +220,52 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Docker安装和基本使用"><a href="#Docker安装和基本使用" class="headerlink" title="Docker安装和基本使用"></a>Docker安装和基本使用</h1><div align="center"> <img src="https://raw.githubusercontent.com/charlesink/Image-Hosting/master/img/Docker.png" width="500px"> </div><br>
+                <h2 id="Docker安装和基本使用"><a href="#Docker安装和基本使用" class="headerlink" title="Docker安装和基本使用"></a>Docker安装和基本使用</h2><div align="center"> <img src="https://pic-1259405769.cos.ap-shanghai.myqcloud.com/img/Docker.png" width="500px"> </div><br>
+uname -r          查看当前内核版本 
+Docker 要求 Ubuntu 系统的内核版本高于 3.10
 
+<h3 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h3><p>apt remove docker docker-engine docker.io containerd runc</p>
+<h3 id="Ubuntu系统的Aliyun源安装-国内"><a href="#Ubuntu系统的Aliyun源安装-国内" class="headerlink" title="Ubuntu系统的Aliyun源安装 ( 国内 ):"></a>Ubuntu系统的Aliyun源安装 ( 国内 ):</h3><h4 id="安装必要的一些系统工具"><a href="#安装必要的一些系统工具" class="headerlink" title="安装必要的一些系统工具"></a>安装必要的一些系统工具</h4><p>apt-get -y install apt-transport-https ca-certificates curl software-properties-common</p>
+<h4 id="安装-GPG-证书"><a href="#安装-GPG-证书" class="headerlink" title="安装 GPG 证书"></a>安装 GPG 证书</h4><p>curl -fsSL <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+<div class="line-numbers-wrapper"><span class="line-number"></span><br></div><h3 id="写入软件源信息"><a href="[#写入软件源信息](https://www.funtl.com/zh/docker/Ubuntu-安装-Docker.html#写入软件源信息)" aria-hidden="true" class="header-anchor"></a> 写入软件源信息</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot; </code></pre></div>
+#### 更新并安装 Docker CE
+apt-get update && apt-get install -y docker-ce
 
-
-<p>apt-get -y install apt-transport-https ca-certificates curl software-properties-common</p>
-<p>curl -fsSL <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
-<p>add-apt-repository “deb [arch=amd64] <a href="http://mirrors.aliyun.com/docker-ce/linux/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/ubuntu</a> $(lsb_release -cs) stable”</p>
-<p>apt-get update &amp;&amp; apt-get install -y docker-ce</p>
-<p>docker version</p>
-<p>cd /etc/docker</p>
+<h4 id="配置阿里云镜像加速"><a href="#配置阿里云镜像加速" class="headerlink" title="配置阿里云镜像加速"></a>配置阿里云镜像加速</h4><p>cd /etc/docker</p>
 <p>tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://tldg6byw.mirror.aliyuncs.com&quot;]" target="_blank" rel="noopener">https://tldg6byw.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
 <p>systemctl daemon-reload<br>systemctl restart docker</p>
+<h3 id="Install-using-the-script-不建议生产环境使用"><a href="#Install-using-the-script-不建议生产环境使用" class="headerlink" title="Install using the  script(不建议生产环境使用)"></a>Install using the  script(不建议生产环境使用)</h3><p>curl -fsSL <a href="https://get.docker.com" target="_blank" rel="noopener">https://get.docker.com</a> -o get-docker.sh<br>sudo sh get-docker.sh</p>
+<h3 id="CentOS系统下Docker的Rpm安装"><a href="#CentOS系统下Docker的Rpm安装" class="headerlink" title="CentOS系统下Docker的Rpm安装"></a>CentOS系统下Docker的Rpm安装</h3><h4 id="下载Rpm包"><a href="#下载Rpm包" class="headerlink" title="下载Rpm包"></a>下载Rpm包</h4><p>地址: <a href="https://download.docker.com/linux/centos/7/x86_64/stable/Packages/" target="_blank" rel="noopener">https://download.docker.com/linux/centos/7/x86_64/stable/Packages/</a><br>docker-ce-17.03.0.ce-1.el7.centos.x86_64.rpm<br>docker-ce-selinux-17.03.0.ce-1.el7.centos.noarch.rpm</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>yum update<br>在rpm包所在目录下执行:<br>yum -y install *<br>systemctl start docker<br>systemctl enable docker<br>systemctl status docker</p>
+<h3 id="拉取centos镜像"><a href="#拉取centos镜像" class="headerlink" title="拉取centos镜像"></a>拉取centos镜像</h3><p>docker pull centos </p>
+<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><p>docker run -d -it -p 80:80 -p 443:443 -p 8888:8888 centos<br>-p是端口映射，前面的是本机端口，后面的是容器端口<br>启动后会返回一个字符串，这个是容器存储的路径</p>
+<p>docker ps               查看当前正在运行的docker镜像及id</p>
+<p>docker exec -it 容器id /bin/bash   进入容器(退出终端后容器不会退出)<br>docker attach                                               (退出bash后容器也会停止)<br>exit                                                  退出容器的终端</p>
+<p>docker stop 容器id     停止当前运行的容器</p>
+<h4 id="服务器重启-那么容器就会退出"><a href="#服务器重启-那么容器就会退出" class="headerlink" title="服务器重启,那么容器就会退出"></a>服务器重启,那么容器就会退出</h4><p>docker ps -a                            查看所有的镜像<br>docker  restart 容器id          恢复退出的容器<br>sudo docker update –restart=always 容器id      设置永久性自启动</p>
+<p>systemctl stop docker </p>
+<p>service docker start</p>
+<p>docker version</p>
 <p>docker info</p>
-<p>docker pull tomcat</p>
+<h3 id="docker关于tomcat的操作"><a href="#docker关于tomcat的操作" class="headerlink" title="docker关于tomcat的操作"></a>docker关于tomcat的操作</h3><p>docker pull tomcat<br>docker rmi tomcat   /   docker image rm tomcat   删除镜像</p>
 <p>docker images</p>
-<p>docker run -p 8080:8080 tomcat</p>
+<p>docker system df     查询镜像 、容器、数据卷占用空间</p>
+<p>虚悬镜像</p>
+<p>中间层镜像</p>
+<p>docker run -p 8080:8080  –name tomcat -d tomcat<br>docker ps<br>ip a</p>
+<p>docker stop 08047bc6008d<br>docker ps -a<br>docker start 08047bc6008d<br>docker rm -f 08047bc6008d<br>docker exec -it 08047bc6008d /bin/bash</p>
+<p>cd /usr/local/tomcat/webapps/ROOT<br>echo hello world  &gt; index.jsp</p>
+<h4 id="复制war包到tomcat容器中"><a href="#复制war包到tomcat容器中" class="headerlink" title="复制war包到tomcat容器中"></a>复制war包到tomcat容器中</h4><p>docker cp  xxx.war tomcat:/usr/local/tomcat/webapps<br>docker restart  08047bc6008d   </p>
+<p>tail -f catalina.out</p>
+<h4 id="以挂载方式启动"><a href="#以挂载方式启动" class="headerlink" title="以挂载方式启动"></a>以挂载方式启动</h4><p>上述执行有个弊端就是容器重启后项目就不在了，我们可以以挂载的方式启动<br>docker run -d -v xxx.war:/usr/local/tomcat/webapps/xxx.war –name tomcat2 -p 8081:8080 tomcat</p>
+<p>chmod +x  *.sh</p>
+<p>ctrl + d  /  exit   退出终端</p>
+<p>docker container prune  删除所有已停止的容器</p>
+<h3 id="Dockerfile-定制镜像"><a href="#Dockerfile-定制镜像" class="headerlink" title="Dockerfile 定制镜像"></a>Dockerfile 定制镜像</h3><p>mkdir /usr/local/docker/myshop<br>vim Dockerfile :<br>FROM tomcat:latest<br>COPY index.jsp /usr/local/tomcat/webapps/ROOT</p>
+<p>vim index.jsp :<br>hello world</p>
+<p>docker build -t myshop .<br>docker run -p 8081:8080 –name myshop -d myshop</p>
+<p>docker container ls -a</p>
+<p>​                                                             </p>
 
                 
 
@@ -392,7 +422,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Mike 2019 
+                    Copyright &copy; Mike 2020 
                     <br>
                     Powered by <a href="http://www.hexo.io">Hexo</a> 
                     <span style="display: inline-block; margin: 0 5px;">
